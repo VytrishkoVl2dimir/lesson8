@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 1</h2>
+	<h3>Умова задачі</h3>
+	<p>
+		Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він
+		відноситься (хорошист, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є
+		хоча би одна трійка)).
+	</p>
+
+	<h3>Розв'язок</h3>
+	<script>
+
+		function getAverageValue(array) {
+			let sumScore = 0
+			for (let i = 0; i < array.length; i++) {
+				sumScore += array[i]
+			}
+			const averageValueScore = sumScore / array.length
+			return averageValueScore.toFixed(1)
+		}
+
+		function getUserRating(array) {
+			let minScore = 5
+			for (let i = 0; i < array.length; i++) {
+				if (array[i] === 2) return 'двійочник'
+				if (array[i] < minScore) minScore = array[i]
+			}
+
+			let grade
+			switch (minScore) {
+				case 3: grade = 'трійочник'
+					break
+				case 4: grade = 'хорошист'
+					break
+				default: grade = 'відмінник'
+					break;
+			}
+			return grade
+		}
+
+		const userRating = [3, 2, 5, 3, 4, 3]
+
+		const userGrade = getUserRating(userRating)
+		const averageValueScore = getAverageValue(userRating)
+		document.write(`Даний учень - ${userGrade}, середній бал складає ${averageValueScore}`)
+
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+
+		ul {
+			margin: 0;
+		}
+	</style>
+</body>
+
+</html>

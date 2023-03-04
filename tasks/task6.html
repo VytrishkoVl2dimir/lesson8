@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 6</h2>
+	<h3>Умова задачі</h3>
+	<p>
+		Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті, які може собі дозволити
+		користувач (кількість грошей задається).
+		Приклад збереження даних
+		let productsPrices = [1000, 20, 31]
+		let productsTitles = [‘cheese’, ‘juice’, ‘bread’]
+	</p>
+
+	<h3>Розв'язок</h3>
+	<script>
+
+		function getNumberOfPurchases(prices, titles, money) {
+			let shoppingList = []
+			for (let i = 0; i < prices.length; i++) {
+				if (prices[i] <= money) shoppingList.push(titles[i])
+			}
+			return shoppingList
+		}
+
+		const productsPrices = [500, 20, 31, 250, 300, 80, 450]
+		const productsTitles = ['сир', 'сік', 'хліб', 'масло', 'авокадо', 'помідори', 'ковбаса']
+		const userAmountOfMoney = parseFloat(prompt(`Введіть кількість грошей`))
+
+		document.write(`Користувач може придбати: ${getNumberOfPurchases(productsPrices, productsTitles, userAmountOfMoney)}.`)
+
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+
+		.table_vision {
+			display: inline-block;
+			margin: 0px 30px 0px 20px;
+		}
+	</style>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 4</h2>
+	<h3>Умова задачі</h3>
+	<p>
+		Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+		• починаються на букву «А»;
+		• перша і остання літери співпадають;
+		• складаються з більше ніш 5 символів;
+	</p>
+
+	<h3>Розв'язок</h3>
+	<script>
+
+		function getNumberAutoIsA(arr) {
+			let counter = 0
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i][0] === 'А') counter += 1
+			}
+			return counter
+		}
+
+		function getNumberTheSameLetters(arr) {
+			let counter = 0
+			for (let i = 0; i < arr.length; i++) {
+				const numberAutoLength = arr[i].length - 1
+				if (arr[i][0] === arr[i][numberAutoLength]) counter += 1
+			}
+			return counter
+		}
+
+		function getNumberMoreNiche_5(arr) {
+			let counter = 0
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i].length > 5) counter += 1
+			}
+			return counter
+		}
+
+		const autoNumber = ['АХ3654НА', 'АА12А', '63686ХК', 'К1322ХК', 'КХ4586МК']
+
+		document.write(`Кількість номерів, які починаються на букву «А» - ${getNumberAutoIsA(autoNumber)}.<br>`)
+		document.write(`Кількість номерів, у яких перша і остання літери співпадають - ${getNumberTheSameLetters(autoNumber)}.<br>`)
+		document.write(`Кількість номерів, які складаються з більше ніж 5 символів - ${getNumberMoreNiche_5(autoNumber)}.`)
+
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+	</style>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 5</h2>
+	<h3>Умова задачі</h3>
+	<p>
+		Дано послідовність оцінок учня. Підрахувати кількість:
+		1) двійок
+		2) кількість хороших оцінок (добре, відмінно);
+		3) кількість оцінок, які нижче середнього.
+	</p>
+
+	<h3>Розв'язок</h3>
+	<script>
+
+		// Функція, яка підраховує середній бал.
+		function getAverageValue(array) {
+			let sumScore = 0
+			for (let i = 0; i < array.length; i++) {
+				sumScore += array[i]
+			}
+			const averageValueScore = sumScore / array.length
+			return averageValueScore.toFixed(1)
+		}
+		// Функція, яка підраховує кількість двійок.
+		function getNumberScore_2(array) {
+			let counter = 0
+			for (let i = 0; i < array.length; i++) {
+				if (array[i] === 2) counter += 1
+			}
+			return counter
+		}
+		// Функція, яка підраховує кількість хороших оцінок (добре, відмінно).
+		function getNumberScore_4_5(array) {
+			let counter = 0
+			for (let i = 0; i < array.length; i++) {
+				if (array[i] === 4 || array[i] === 5) counter += 1
+			}
+			return counter
+		}
+
+		// Функція, яка підраховує кількість оцінок, які нижче середнього.
+		function getNumberScoreBelowAverage(array) {
+			let counter = 0
+			const averageValueScore = getAverageValue(array)
+			for (let i = 0; i < array.length; i++) {
+				if (array[i] < averageValueScore) counter += 1
+			}
+			return counter
+		}
+
+		const userRating = [3, 2, 5, 3, 4, 2, 5, 3, 4]
+
+		document.write(`Кількість двійок = ${getNumberScore_2(userRating)}.<br>`)
+		document.write(`Кількість хороших оцінок (добре, відмінно) = ${getNumberScore_4_5(userRating)}.<br>`)
+		document.write(`Кількість оцінок, які нижче середнього = ${getNumberScoreBelowAverage(userRating)}.<br>`)
+		document.write(`Cередній бал = ${getAverageValue(userRating)}.`)
+
+
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+	</style>
+</body>
+
+</html>

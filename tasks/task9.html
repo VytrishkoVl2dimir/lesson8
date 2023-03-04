@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home Work</title>
+</head>
+
+<body>
+	<h2>Задача 9</h2>
+	<h3>Умова задачі</h3>
+	<p>
+		Морський бій. Користувач вводить кількість клітинок одновимірного масиву та кількість одиночних кораблів.
+		Комп’ютер довільно розміщує ці одиночні кораблі у масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста,
+		якщо 1 – то це означає, що там є корабель. Користувач вводить номер клітинки, куди стріляє. Гра продовжується до
+		тих пір, поки не будуть потоплені усі кораблі.
+	</p>
+
+	<h3>Розв'язок</h3>
+	<script>
+
+		function gameSeaBattle(cell, ships) {
+			let positionsOfShips = new Array(cell)
+			let counterShips = 0
+			do {
+				const minNumber = 1
+				const maxNumber = cell
+				const randomNumber = minNumber + Math.floor(Math.random() * (maxNumber - minNumber + 1))
+				if (positionsOfShips[randomNumber - 1] != 1) {
+					positionsOfShips[randomNumber - 1] = 1
+					counterShips += 1
+				}
+			} while (counterShips < ships);
+
+			do {
+				const userNumberPosition = parseInt(prompt(`Введіть ймовірну позицію корабля (число від 1 до ${cell})`))
+				if (positionsOfShips[userNumberPosition - 1] === 1) {
+					positionsOfShips[userNumberPosition - 1] = 0
+					counterShips -= 1
+					alert(`Влучили, корабель потоплений, залишилось ${counterShips} кораблів.`)
+				} else alert('Не влучили, спробуйте ще раз')
+			} while (counterShips > 0)
+			return document.write('Ви виграли, всі кораблі потоплені.')
+		}
+
+		numberCell = parseInt(prompt(`Введіть число клітинок`))
+		numberShips = parseInt(prompt(`Введіть кількість одиночних кораблів`))
+		gameSeaBattle(numberCell, numberShips)
+
+	</script>
+	<style>
+		h2 {
+			color: #08368b;
+		}
+
+		h3 {
+			color: #06700f;
+		}
+	</style>
+</body>
+
+</html>
